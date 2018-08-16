@@ -5,31 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .box {
-            width: 500px;
-            height: 200px;
-            margin: 0 auto;
-        }
-        
-        .box button {
-            width: 100px;
-            height: 30px;
-            margin: 50px;
-        }
-    </style>
+    <!-- <link href='http://fonts.font.im/css?family=Dosis:500' rel='stylesheet' type='text/css'> -->
+    <title>Slashee</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <div class="box">
-        <button data-clipScreen='clipBtn'>截图</button>
-        <button data-cancelclipScreen='clipBtn'>取消</button>
+    <div class="slash-top">
+        <div class="slash-top-icon"></div>
+        <div class="slash-top-slogan"> Slashee</div>
+    </div>
+    <div class="slash-movie">
+        <ul class="slash-win">
+            <li class="slash-info">Tips:</li>
+            <li class="slash-inc">ctrl+alt+x: enter screen mode</li>
+            <li class="slash-inc">ctrl+esc: quit screen mode</li>
+        </ul>
     </div>
 </body>
 <script>
     var screen = require('./../screen/renderProcess');
-
 </script>
 
 </html>

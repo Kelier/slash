@@ -1,17 +1,22 @@
-# shotScreen
+# Slash 🐿
 # electron 的一个截图插件工具
-![示例](https://github.com/chong0808/shotScreen/blob/master/asset/images/01.png)
+
+思路来源于[chong0808](https://github.com/chong0808/shotScreen)，我对其进行了一定美化与改造
+
 ### 测试案例
 #### 下载之后 
 #####  $ npm i electron -g
 #### 启动 
 #####  $ npm run dev 
 
+#### 使用截图
+
+
 ### 文件结构
 ```
 ├── screen  // 插件主要文件
 │   ├── mainProcess
-│   │   └── screenshot.js  // 主进程引入的文件 主要是俩个渲染进程中相互通信的桥梁
+│   │   └── index.js  // 主进程引入的文件 主要是俩个渲染进程中相互通信的桥梁
 │   └── renderProcess // 渲染进程引入的文件
 │       ├── asset  // 资源文件
 │       ├── index.html // 创建截图渲染进程的文件
@@ -33,7 +38,7 @@
     var url = '/index.html';
     win = createWindow(url);
     win.webContents.openDevTools();
-    screenShot(win.webContents,{quit:'ctrl+shift+q',shotKey:'ctrl+alt+d'});
+    screenShot(win.webContents,{quit:'ctrl+esc',shotKey:'ctrl+alt+x'});
 })
 ```
 ##### quit:退出快捷键   shotKey：截图快捷键
@@ -92,8 +97,8 @@ module.exports = function(winContent,obj) {
         }
     });
     // 退出快捷键
-    var quitShot = (obj&& obj.quit) || 'ctrl+shift+q';
-    var shotKey = (obj&& obj.shotKey) || 'ctrl+alt+d';
+    var quitShot = (obj&& obj.quit) || 'ctrl+esc';
+    var shotKey = (obj&& obj.shotKey) || 'ctrl+alt+x';
 
     globalShortcut.register(quitShot, function() {
         winContent.send('quit-cut', 1);

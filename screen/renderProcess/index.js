@@ -10,19 +10,6 @@ var w = screen.width,
 var win = null;
 
 
-// 点击事件绑定
-document.body.addEventListener('click', function(event) {
-    if (event.target.dataset.clipscreen) {
-        screenShot ();
-        return false;
-    }
-})
-
-// 去除默认选择
-document.onselectstart = function() {
-    return false;
-}
-
 function screenShot(){
     if (!win) {
         capturer().then(function(data) {
@@ -54,20 +41,20 @@ function createChildWin(_url, opts) {
         fullscreen: true,
         frame: false
     }
-    config = Object.assign(config, opts)
+    config = Object.assign(config, opts);
     var _win = new BrowserWindow(config);
     _win.loadURL(url.format({
         pathname: path.join(__dirname + _url),
         protocol: 'file',
         slashes: true
-    }))
+    }));
 
     _win.on('closed', () => {
         _win = null;
-    })
-    _win.on('close', () => {
-        _win = null;
-    })
+    });
+    // _win.on('close', () => {
+    //     _win = null;
+    // })
     return _win;
 }
 
@@ -77,7 +64,7 @@ function createChildWin(_url, opts) {
  * @param  _win 
  */
 function clearWindow(_win) {
-    _win && _win.close()
+    _win && _win.close();
 }
 
 /**
@@ -88,9 +75,9 @@ function capturer() {
         desktopCapturer.getSources({ types: ['window', 'screen'], thumbnailSize: { width: w, height: h } }, (error, sources) => {
             if (error) console.error(error);
             localStorage['image'] = sources[0].thumbnail.toDataURL();
-            resolve(sources[0].thumbnail.toDataURL())
-        })
-    })
+            resolve(sources[0].thumbnail.toDataURL());
+        });
+    });
 }
 
 

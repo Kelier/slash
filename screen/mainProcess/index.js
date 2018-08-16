@@ -6,22 +6,25 @@ module.exports = function(winContent,obj) {
     ipcMain.on('screenshot-page', function(sender, message) {
         switch (message.type) {
             case 'close':
-                winContent.send('quit-cut')
+                winContent.send('quit-cut');
                 break;
             default:
                 break;
         }
     });
-    
-    // 退出快捷键
-    var quitShot = (obj&& obj.quit) || 'ctrl+shift+q';
-    var shotKey = (obj&& obj.shotKey) || 'ctrl+alt+d';
+     
+    // 设置快捷键
+    var quitScreen = (obj&& obj.quit) || 'ctrl+esc';
+    var enterScreen = (obj&& obj.shotKey) || 'ctrl+alt+x';
 
-    globalShortcut.register(quitShot, function() {
+    globalShortcut.register(quitScreen, function() {
         winContent.send('quit-cut', 1);
     });
-    // 截图快捷键
-    globalShortcut.register('ctrl+alt+d', function() {
+    globalShortcut.register(enterScreen, function() {
         winContent.send('global-shortcut-capture', 1);
     });
+    
+   
+
+    
 };
