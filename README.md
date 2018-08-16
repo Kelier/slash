@@ -1,4 +1,6 @@
-# Slash 🐿
+# Slash 🐿  
+[![GitHub issues](https://img.shields.io/github/issues/Kelier/slash.svg?style=for-the-badge)](https://github.com/Kelier/slash/issues)
+
 # electron 的一个截图插件工具
 
 思路来源于[chong0808](https://github.com/chong0808/shotScreen)，我对其进行了一定美化与改造
