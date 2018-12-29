@@ -1,5 +1,5 @@
 # Slash 🐿  
-[![GitHub issues](https://img.shields.io/github/issues/Kelier/slash.svg?style=for-the-badge)](https://github.com/Kelier/slash/issues)
+[![GitHub issues](https://img.shields.io/github/issues/Kelier/slash.svg?style=for-the-badge)](https://github.com/Kelier/slash/issues) [![Greenkeeper badge](https://badges.greenkeeper.io/Kelier/slash.svg)](https://greenkeeper.io/)
 
 # electron 的一个截图插件工具
 
